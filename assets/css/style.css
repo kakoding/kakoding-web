@@ -1,0 +1,354 @@
+/* z-index jquery ui autocomplete configuration */
+.ui-autocomplete {
+    position: absolute;
+    cursor: default;
+    z-index: 1051 !important;
+}
+
+/*
+Description: Foundation 4 docs style for highlight.js
+Author: Dan Allen <dan.j.allen@gmail.com>
+Website: http://foundation.zurb.com/docs/
+Version: 1.0
+Date: 2013-04-02
+*/
+.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    background: #eee;
+    color: black;
+}
+
+.hljs-link,
+.hljs-emphasis,
+.hljs-attribute,
+.hljs-addition {
+    color: #070;
+}
+
+.hljs-emphasis {
+    font-style: italic;
+}
+
+.hljs-strong,
+.hljs-string,
+.hljs-deletion {
+    color: #d14;
+}
+
+.hljs-strong {
+    font-weight: bold;
+}
+
+.hljs-quote,
+.hljs-comment {
+    color: #998;
+    font-style: italic;
+}
+
+.hljs-section,
+.hljs-title {
+    color: #900;
+}
+
+.hljs-class .hljs-title,
+.hljs-type {
+    color: #458;
+}
+
+.hljs-variable,
+.hljs-template-variable {
+    color: #336699;
+}
+
+.hljs-bullet {
+    color: #997700;
+}
+
+.hljs-meta {
+    color: #3344bb;
+}
+
+.hljs-code,
+.hljs-number,
+.hljs-literal,
+.hljs-keyword,
+.hljs-selector-tag {
+    color: #099;
+}
+
+.hljs-regexp {
+    background-color: #fff0ff;
+    color: #880088;
+}
+
+.hljs-symbol {
+    color: #990073;
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class {
+    color: #007700;
+}
+/* end foundation style highlight.js */
+
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+.back-to-top {
+    position: fixed;
+    display: none;
+    right: 15px;
+    bottom: 15px;
+    background: rgb(27, 201, 231);
+    border: rgb(27, 201, 231);
+    color: #fff;
+    transition: display 0.5s ease-in-out;
+    z-index: 99999;
+}
+
+.back-to-top i {
+    font-size: 24px;
+    position: absolute;
+    top: 7px;
+    left: 8px;
+}
+
+.back-to-top:hover {
+    color: #fff;
+    background: rgb(23, 186, 214);
+    border: rgb(23, 186, 214);
+    transition: background 0.2s ease-in-out;
+}
+
+
+.kak-container {
+    margin-top: 100px;
+}
+
+.kak-searchinp {
+    width: 500px !important;
+    border: 1px solid #1EDEEF;
+    border-radius: 17px;
+}
+
+.kak-searchbtn {
+    background: rgb(27, 201, 231);
+    border: 1px solid rgb(27, 201, 231);
+    border-radius: 50%;
+    padding: 6px 10px;
+}
+
+.kak-searchbtn:hover {
+    background: rgb(23, 186, 214);
+    border: 1px solid rgb(23, 186, 214);
+}
+
+.search-toggler {
+    font-size: 23px;
+    color: rgb(27, 201, 231);
+}
+
+.btnback-mob {
+    color: rgb(25, 190, 219);
+    border-radius: 50% !important;
+    padding: 6px 11px;
+}
+
+.searchinp-mob {
+    width: 370px !important;
+    border: 1px solid #1EDEEF;
+    border-radius: 17px !important;
+}
+
+.btnsearch-mob {
+    background: rgb(27, 201, 231);
+    border: 1px solid rgb(27, 201, 231);
+    border-radius: 50% !important;
+    padding: 6px 10px;
+}
+
+.series-searchinp {
+    border-radius: 3px !important;
+}
+
+.series-searchbtn {
+    background: rgb(27, 201, 231);
+    border: 1px solid rgb(27, 201, 231);
+    border-radius: 3px !important;
+}
+
+.series-searchbtn:hover {
+    background: rgb(23, 186, 214);
+    border: 1px solid rgb(23, 186, 214);
+}
+
+.kak-navbar-nav a {
+    font-family: 'Baloo Tamma 2', cursive;
+}
+
+.kaksearch-desktop {
+    color: #1BC9E7 !important;
+}
+
+.latest-article {
+    margin-top: 100px;
+}
+
+.title-latest-article {
+    font-size: 43px;
+    font-family: 'Baloo Tamma 2', cursive;
+}
+
+.odi-card-link:hover {
+    text-decoration: none;
+}
+
+.odi-card-title {
+    color: #202429;
+}
+
+.odi-card-text {
+    color: #202429;
+}
+
+.truncate-multiline {
+    overflow: hidden;
+    display: -webkit-box;
+    max-height: 50px;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.kakimg-writer-article {
+    width: 170px;
+}
+
+.kak-boradius {
+    border-radius: 25px;
+}
+
+/* for pbckcode */
+pre code {
+    max-height: 550px;
+}
+
+.follow-us {
+    margin-top: 130px;
+}
+
+.follow-fb {
+    font-size: 37px;
+    font-family: 'Baloo Tamma 2', cursive;
+}
+
+.kak-medsos {
+    background-color: rgb(38, 181, 238);
+    border: 1px solid rgb(38, 181, 238);
+}
+
+.kak-medsos:hover {
+    background: rgb(29, 163, 216);
+    border: 1px solid rgb(29, 163, 216);
+}
+
+.article-title {
+    font-family: 'Baloo Tamma 2', cursive;
+}
+
+.det-article-title {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.writed-by {
+    font-size: 25px;
+}
+
+.btn-save {
+    right: 15px;
+    bottom: 15px;
+    z-index: 9999;
+}
+
+.save-notif {
+    top: 15px !important;
+    right: 15px !important;
+    z-index: 9999;
+}
+
+footer {
+    background: #EEF5FA;
+}
+
+.kak-footer {
+    top: 350px;
+}
+
+.ikuti-kami {
+    font-family: 'Baloo Tamma 2', cursive;
+    font-size: 25px;
+}
+
+.btn-footer-twitter {
+    background-color: rgb(38, 181, 238);
+    border: 1px solid rgb(38, 181, 238);
+}
+
+.btn-footer-twitter:hover {
+    background-color: rgb(29, 163, 216);
+    border: 1px solid rgb(29, 163, 216);
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+    .search-desktop {
+        display: none;
+    }
+
+    .kaksearch-desktop {
+        display: none;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .search-toggler {
+        display: none;
+    }
+
+    .img-schedule {
+        width: 850px;
+    }
+
+    .kak-card {
+        height: 291px;
+    }
+
+    .kak-card-series {
+        height: 310px;
+    }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .title-latest-article {
+        font-size: 35px;
+    }
+
+    .follow-fb {
+        font-size: 30px;
+    }
+
+    /* for pbckcode */
+    pre code {
+        max-height: 450px;
+    }
+
+    .kak-footer {
+        padding-top: 20px;
+        padding-bottom: 50px;
+    }
+}

@@ -1,1 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+<url>
+<loc>https://kakoding.github.io/kakoding-web/</loc>
+</url>
+<url>
+<loc>https://kakoding.github.io/kakoding-web/artikel/sign-up-tutorial-membuat-chat-app-dengan-laravel-8-dan-push-notification.html</loc>
+<lastmod>2020-10-18</lastmod>
+<changefreq>daily</changefreq>
+<priority>1.0</priority>
+</url>
+<url>
+<loc>https://kakoding.github.io/kakoding-web/seri-belajar/tutorial-membuat-chat-app-dengan-laravel-8-dan-push-notification.html</loc>
+</url>
+<url>
+<loc>https://kakoding.github.io/kakoding-web/artikel.html</loc>
+</url>
+<url>
+<loc>https://kakoding.github.io/kakoding-web/seri-belajar.html</loc>
+</url>
+
+</urlset>

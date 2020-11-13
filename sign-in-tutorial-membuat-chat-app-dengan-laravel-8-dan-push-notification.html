@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Kita akan membuat fitur sign in/login pada seri belajar kali ini">
+    <meta name="keywords" content="Tutorial Membuat Chat App dengan Laravel 8 dan Push Notification, Tutorial Membuat Chat App dengan Laravel, Tutorial Chat App Laravel, Kak Oding Tutorial Chat App Laravel">
+    <meta name="author" content="Kak Oding">
+    
+    <link rel="icon" type="image/png" href="assets/img/favicon/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="assets/img/favicon/favicon-16x16.png" sizes="16x16" />
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180796320-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-180796320-1');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/default.min.css">
+
+    <link rel="stylesheet" href="assets/css/hamburgers.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>#2 Sign In - Tutorial Membuat Chat App dengan Laravel 8 dan Push Notification | Kak Oding</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top border-bottom bg-white">
+        <div class="container">
+            <a class="navbar-brand p-0" href="index.html">
+                <picture>
+                  <source type="image/webp" srcset="assets/img/logo.webp">
+                  <source type="image/png" srcset="assets/img/mozjpeg/logo.png">
+                  <img src="assets/img/mozjpeg/logo.png" width="55" alt="Logo Kak Oding">
+                </picture>
+            </a>
+            <a href="cari.html" class="ml-auto mr-4 search-toggler"><i class="fas fa-search"></i></a>
+            <a href="#" class="navbar-toggler hamburger hamburger--elastic" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto kak-navbar-nav">
+                    <a class="nav-item nav-link" href="index.html">Home</a>
+                    <a class="nav-item nav-link" href="artikel.html">Artikel</a>
+                    <a class="nav-item nav-link" href="seri-belajar.html">Seri Belajar</a>
+                    <a class="nav-item nav-link kaksearch-desktop" href="cari.html"><i class="fas fa-search mr-2"></i>Cari</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article>
+        <div class="container kak-container">
+            <div class="row">
+                <div class="col">
+                    <div class="text-center mb-3">
+                        <picture>
+                          <source type="image/webp" srcset="assets/img/article-img/webp/dbakfheyvnflusdbs.webp">
+                          <source type="image/jpeg" srcset="assets/img/article-img/mozjpeg/dbakfheyvnflusdbs.jpg">
+                          <img src="assets/img/article-img/mozjpeg/dbakfheyvnflusdbs.jpg" alt="#1 Sign Up - Tutorial Membuat Chat App dengan Laravel 8 dan Push Notification" class="img-fluid kak-boradius">
+                        </picture>
+                    </div>
+                    <h1 class="det-article-title">#2 Sign In - Tutorial Membuat Chat App dengan Laravel 8 dan Push Notification</h1>
+                    <p class="form-text text-muted">Kak Oding <span class="align-text-bottom">.</span> 20 Oktober 2020</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p>Halo semuanya balik lagi di tutorial membuat chat app dengan laravel 8, sebelumnya kita sudah membuat fitur sign up/account registration nah kali ini kita akan membuat fitur sign in/login. Kita buat dulu tampilan halaman sign in nya di chat/rest-client/resources/views/signin.blade.php:</p>
+                    <!-- code block -->
+                    <pre data-pbcklang="php" data-pbcktabsize="2">
+<code class="html ">@extends(&#39;layout.app&#39;)
+
+@section(&#39;description&#39;, &#39;Simple chat sign in page&#39;)
+@section(&#39;title&#39;, &#39;Sign In - Simple Chat&#39;)
+
+@section(&#39;container&#39;)
+    &lt;div class=&quot;container sc-container&quot;&gt;
+        &lt;div class=&quot;row justify-content-center&quot;&gt;
+            &lt;div class=&quot;col-12 col-lg-6&quot;&gt;
+
+                &lt;div class=&quot;card sc-card&quot;&gt;
+                  &lt;div class=&quot;card-header&quot;&gt;
+                    &lt;div class=&quot;row&quot;&gt;
+                      &lt;div class=&quot;col align-self-center text-center&quot;&gt;
+                        &lt;h5&gt;Login&lt;/h5&gt;
+                      &lt;/div&gt; 
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    @if (session(&#39;success_msg&#39;))
+                        &lt;div class=&quot;alert alert-success&quot;&gt;
+                            {{ session(&#39;success_msg&#39;) }}
+                        &lt;/div&gt;
+                    @endif
+                    &lt;form method=&quot;post&quot; action=&quot;/signin&quot;&gt;
+                      @csrf
+                      &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;label for=&quot;exampleInputEmail1&quot;&gt;Email&lt;/label&gt;
+                        &lt;input type=&quot;email&quot; class=&quot;form-control @error(&#39;email&#39;) is-invalid @enderror&quot; id=&quot;exampleInputEmail1&quot; aria-describedby=&quot;emailHelp&quot; name=&quot;email&quot; value=&quot;{{ old(&#39;email&#39;) }}&quot;&gt;
+                        @error(&#39;email&#39;)&lt;div class=&quot;invalid-feedback&quot;&gt;{{ $message }}&lt;/div&gt;@enderror
+                      &lt;/div&gt;
+                      &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;label for=&quot;exampleInputPassword1&quot;&gt;Password&lt;/label&gt;
+                        &lt;input type=&quot;password&quot; class=&quot;form-control @error(&#39;password&#39;) is-invalid @enderror&quot; id=&quot;exampleInputPassword1&quot; name=&quot;password&quot;&gt;
+                        @error(&#39;password&#39;)&lt;div class=&quot;invalid-feedback&quot;&gt;{{ $message }}&lt;/div&gt;@enderror
+                      &lt;/div&gt;
+                      &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary mb-3&quot;&gt;Login&lt;/button&gt;
+                      &lt;p&gt;Don&#39;t have an account? &lt;a href=&quot;#&quot;&gt;Sign up&lt;/a&gt;&lt;/p&gt;
+                    &lt;/form&gt;
+                  &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+@endsection
+</code>
+                    </pre>
+                    <!-- end code block -->
+                    <p>buat juga route baru untuk mengecek data login di chat\rest-client\routes\web.php:</p>
+                    <!-- code block -->
+                    <pre data-pbcklang="php" data-pbcktabsize="2">
+<code class="php ">Route::post(&#39;/signin&#39;, [PagesController::class, &#39;sendSignin&#39;]);</code>
+                    </pre>
+                    <!-- end code block -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>Ayo dukung Kak Oding dengan traktir di:</p>
+                    <p>
+                        - GoPay, OVO, Dana, dan LinkAja (tanpa perlu login ke trakteer.id dan hanya berlaku di Indonesia)<br>
+                        <a href="https://trakteer.id/kakoding" target="_blank">trakteer.id/kakoding</a>
+                    </p>
+                    <p>
+                        - Kartu debit dan kartu kredit (berlaku Internasional)<br>
+                        <a href="https://paypal.me/kakoding" target="_blank">paypal.me/kakoding</a>
+                    </p>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <p>Source code hasil ngoding ada di <a href="https://github.com/kakoding" target="_blank">github.com/kakoding</a></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h4>Share</h4>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-12 mb-2">
+                   <a href="https://api.whatsapp.com/send?text=https://kakoding.github.io/kakoding-web/artikel/sign-up-tutorial-membuat-chat-app-dengan-laravel-8-dan-push-notification.html" target="_blank" class="btn btn-light mr-2"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://facebook.com/share.php?u=https://kakoding.github.io/kakoding-web/artikel/sign-up-tutorial-membuat-chat-app-dengan-laravel-8-dan-push-notification.html&title=#1 Sign Up - Tutorial Membuat Chat App dengan Laravel 8 dan Push Notification" target="_blank" class="btn btn-light mr-2"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/share?url=https://kakoding.github.io/kakoding-web/artikel/sign-up-tutorial-membuat-chat-app-dengan-laravel-8-dan-push-notification.html&text=#1 Sign Up - Tutorial Membuat Chat App dengan Laravel 8 dan Push Notification" target="_blank" class="btn btn-light mr-2"><i class="fab fa-twitter"></i></a>
+                </div>
+                <div class="col-12">
+                    <button type="button" data-clipboard-text="https://kakoding.github.io/kakoding-web/artikel/sign-up-tutorial-membuat-chat-app-dengan-laravel-8-dan-push-notification.html" class="btn btn-light kak-copy-link" data-toggle="popover" data-placement="bottom" data-content="Copied!"><i class="far fa-copy mr-1"></i> Copy Link</button>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <div class="media position-relative">
+                        <picture>
+                          <source type="image/webp" srcset="assets/img/writer-avatar.webp">
+                          <source type="image/jpeg" srcset="assets/img/mozjpeg/writer-avatar.jpg">
+                          <img src="assets/img/mozjpeg/writer-avatar.jpg" width="100" class="rounded-circle mr-3" alt="Ditulis oleh Kak Oding">
+                        </picture>
+                        
+                        <div class="media-body ml-lg-3">
+                            <p class="mt-2">
+                                <span class="text-secondary">Ditulis oleh</span><br>
+                                <span class="writed-by">Kak Oding</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <h4 class="mb-4">Komentar</h4>
+                    <small class="form-text text-muted"><b>Perhatian</b> untuk sementara waktu komentar dilakukan di postingan twitter</small>
+                    <a href="https://bit.ly/2T3RTnZ" title="link untuk komentar di facebook post" target="_blank">https://bit.ly/2T3RTnZ</a>
+                </div>
+            </div>
+            <hr>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- iklan kotak -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-3297136171257630"
+                 data-ad-slot="1233342079"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </article>
+
+    <footer class="mt-5 position-relative kak-footer">
+        <div class="container">
+            <div class="row pt-4">
+                <div class="col-12">
+                    <p class="ikuti-kami">Ikuti Kami di</p>
+                </div>
+                <div class="col-12">
+                    <a href="https://twitter.com/kak_oding" target="_blank" class="btn btn-primary btn-footer-twitter mr-2"><i class="fab fa-twitter"></i></a>
+                    <a href="https://github.com/kakoding" target="_blank" class="btn btn-primary btn-footer-twitter"><i class="fab fa-github"></i></a>
+                </div>
+                <div class="col-12 mt-3">
+                    <p>&copy; 2020 Kak Oding.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="btn btn-primary back-to-top"><i class="fas fa-chevron-up"></i></a>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+
+    <script src="assets/js/clipboard.js"></script>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1029 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Kita akan membuat fitur sign up/create account untuk mengawali seri belajar kali ini">
+    <meta name="keywords" content="Tutorial Membuat Chat App dengan Laravel 8 dan Push Notification, Tutorial Membuat Chat App dengan Laravel, Tutorial Chat App Laravel, Kak Oding Tutorial Chat App Laravel">
+    <meta name="author" content="Kak Oding">
+    
+    <link rel="icon" type="image/png" href="../assets/img/favicon/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="../assets/img/favicon/favicon-16x16.png" sizes="16x16" />
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180796320-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-180796320-1');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/default.min.css">
+
+    <link rel="stylesheet" href="../assets/css/hamburgers.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <title>#1 Sign Up - Tutorial Membuat Chat App dengan Laravel 8 dan Push Notification | Kak Oding</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top border-bottom bg-white">
+        <div class="container">
+            <a class="navbar-brand p-0" href="../index.html">
+                <picture>
+                  <source type="image/webp" srcset="../assets/img/logo.webp">
+                  <source type="image/png" srcset="../assets/img/mozjpeg/logo.png">
+                  <img src="../assets/img/mozjpeg/logo.png" width="55" alt="Logo Kak Oding">
+                </picture>
+            </a>
+            <a href="../cari.html" class="ml-auto mr-4 search-toggler"><i class="fas fa-search"></i></a>
+            <a href="#" class="navbar-toggler hamburger hamburger--elastic" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto kak-navbar-nav">
+                    <a class="nav-item nav-link" href="../index.html">Home</a>
+                    <a class="nav-item nav-link" href="../artikel.html">Artikel</a>
+                    <a class="nav-item nav-link" href="../seri-belajar.html">Seri Belajar</a>
+                    <a class="nav-item nav-link kaksearch-desktop" href="../cari.html"><i class="fas fa-search mr-2"></i>Cari</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article>
+        <div class="container kak-container">
+            <div class="row">
+                <div class="col">
+                    <div class="text-center mb-3">
+                        <picture>
+                          <source type="image/webp" srcset="../assets/img/article-img/webp/dbakfheyvnflusdbs.webp">
+                          <source type="image/jpeg" srcset="../assets/img/article-img/mozjpeg/dbakfheyvnflusdbs.jpg">
+                          <img src="../assets/img/article-img/mozjpeg/dbakfheyvnflusdbs.jpg" alt="#1 Sign Up - Tutorial Membuat Chat App dengan Laravel 8 dan Push Notification" class="img-fluid kak-boradius">
+                        </picture>
+                    </div>
+                    <h1 class="det-article-title">#1 Sign Up - Tutorial Membuat Chat App dengan Laravel 8 dan Push Notification</h1>
+                    <p class="form-text text-muted">Kak Oding <span class="align-text-bottom">.</span> 18 September 2020</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p>
+                        Halo semuanya apa kabar nih? semoga kalian semua sehat ya, kali ini kita mau membuat fitur sign up atau account registration di tutorial kali ini ayo simak baik baik. Tapi tunggu dulu ada beberapa syarat sebelum kita mulai apa tuh? silahkan cek dibawah ya:
+                        <ul>
+                            <li>HTML, CSS Javascript</li>
+                            <li>PHP dan MySQL</li>
+                            <li>Laravel (sebelum belajar laravel lebih baik belajar CodeIgniter dahulu)</li>
+                        </ul>
+                        Materi - materi di atas dapat kalian pelajari di channel youtubenya <a href="https://youtube.com/webprogrammingunpas" target="_blank">Web Programming Unpas</a> dan jangan lupa dukung channel youtubenya agar youtubernya semangat. Mari kita mulai membuat web chat appsnya, pastikan kalian sudah menginstall <a href="https://getcomposer.org/" target="_blank">composer</a>, <a href="https://git-scm.com/" target="_blank">git</a>, <a href="https://nodejs.org/en/download/current/">node.js</a>(untuk penggunaan npm nya), dan <a href="https://sourceforge.net/projects/xampp/files/">xampp</a> dengan PHP versi >= 7.3 pada komputer/laptop kalian ya.
+                        <br>
+                        Pertama - tama buat sebuah folder dengan nama chat dimana aja terserah kalian, lalu masuk ke dalam folder chat, klik kanan di area di dalam folder chat, lalu klik git bash here. Gambar:
+                    </p>
+                    <div class="row justify-content-center mb-2">
+                        <div class="col-md-6">
+                            <a href="../assets/img/article-img/original/bdywkjds.jpg" target="_blank">
+                                <picture>
+                                  <source type="image/webp" srcset="../assets/img/article-img/webp/bdywkjds.webp">
+                                  <source type="image/jpeg" srcset="../assets/img/article-img/mozjpeg/bdywkjds.jpg">
+                                  <img src="../assets/img/article-img/mozjpeg/bdywkjds.jpg" alt="gambar klik git bash here" class="img-fluid img-thumbnail">
+                                </picture>
+                            </a>
+                        </div>
+                    </div>
+                    <p>kemudian buat sebuah project di composer dan kita akan beri nama projectnya rest-server. Gambar:</p>
+                    <div class="row justify-content-center mb-2">
+                        <div class="col-md-6">
+                            <a href="../assets/img/article-img/original/ndkasks.jpg" target="_blank">
+                                <picture>
+                                  <source type="image/webp" srcset="../assets/img/article-img/webp/ndkasks.webp">
+                                  <source type="image/jpeg" srcset="../assets/img/article-img/mozjpeg/ndkasks.jpg">
+                                  <img src="../assets/img/article-img/mozjpeg/ndkasks.jpg" alt="gambar klik git bash here" class="img-fluid img-thumbnail">
+                                </picture>
+                            </a>
+                        </div>
+                    </div>
+                    <p>Setelah selesai membuat project baru yang diberi nama rest-server, buatlah sebuah database di phpMyAdmin dan beri nama databasenya chat. Kemudian kita sambungkan project rest-server dengan database dengan mengatur file .env yang ada di dalam folder rest-server. Gambar:</p>
+                    <div class="row justify-content-center mb-2">
+                        <div class="col-md-6">
+                            <a href="../assets/img/article-img/original/nmvgksjs.jpg" target="_blank">
+                                <picture>
+                                  <source type="image/webp" srcset="../assets/img/article-img/webp/nmvgksjs.webp">
+                                  <source type="image/jpeg" srcset="../assets/img/article-img/mozjpeg/nmvgksjs.jpg">
+                                  <img src="../assets/img/article-img/mozjpeg/nmvgksjs.jpg" alt="gambar klik git bash here" class="img-fluid img-thumbnail">
+                                </picture>
+                            </a>
+                        </div>
+                    </div>
+                    <p>Buat authenticationnya untuk sign up dan sign in dengan laravel jetstream. Gambar:</p>
+                    <div class="row justify-content-center mb-2">
+                        <div class="col-md-6">
+                            <a href="../assets/img/article-img/original/oaewjefqew.jpg" target="_blank">
+                                <picture>
+                                  <source type="image/webp" srcset="../assets/img/article-img/webp/oaewjefqew.webp">
+                                  <source type="image/jpeg" srcset="../assets/img/article-img/mozjpeg/oaewjefqew.jpg">
+                                  <img src="../assets/img/article-img/mozjpeg/oaewjefqew.jpg" alt="gambar klik git bash here" class="img-fluid img-thumbnail">
+                                </picture>
+                            </a>
+                        </div>
+                    </div>
+                    <p>Lalu install Jetstream dengan Livewire:</p>
+                    <div class="card shadow-sm mb-2">
+                      <div class="card-body">
+                        php artisan jetstream:install livewire
+                      </div>
+                    </div>
+                    <p>Kemudian tinggal kita npm install dan migrate:</p>
+                    <div class="card shadow-sm mb-2">
+                      <div class="card-body">
+                        npm install && npm run dev
+                        <br><br><br>
+                        php artisan migrate
+                      </div>
+                    </div>
+                    <p>sudah selesai membuat authenticationnya selanjutnya kita membuat oauth2 server dengan passport, install Passport via Composer di git bash kalian:</p>
+                    <div class="card shadow-sm mb-2">
+                      <div class="card-body">
+                        composer require laravel/passport
+                      </div>
+                    </div>
+                    <p>lakukan migrasi agar di database kita terdapat tabel - tabel yang dibutuhkan passport:</p>
+                    <div class="card shadow-sm mb-2">
+                      <div class="card-body">
+                        php artisan migrate
+                      </div>
+                    </div>
+                    <p>tinggal passport:install aja deh:</p>
+                    <div class="card shadow-sm mb-2">
+                      <div class="card-body">
+                        php artisan passport:install
+                      </div>
+                    </div>
+                    <p>Selanjutnya kita harus memanggil Passport::routes dan kita tempatkan di dalam method boot, caranya buka file AuthServiceProvider.php yang ada di chat\rest-server\app\Providers\AuthServiceProvider.php:</p>
+                    <!-- code block -->
+                    <pre data-pbcklang="php" data-pbcktabsize="2">
+<code class="php">&lt;?php
+
+namespace App\Providers;
+
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Gate;
+// tambahkan ini
+use Laravel\Passport\Passport;</code>
+                    </pre>
+                    <!-- end code block -->
+                    <!-- code block -->
+                    <pre data-pbcklang="php" data-pbcktabsize="2">
+<code class="php">public function boot()
+{
+    $this-&gt;registerPolicies();
+
+    // nah panggil passport:routesnya
+    Passport::routes();
+}</code>
+                    </pre>
+                    <!-- end code block -->
+                    <p>buka file auth.php yang ada di chat\rest-server\config\auth.php lalu ubah jadi seperti ini:</p>
+                    <!-- code block -->
+                    <pre data-pbcklang="php" data-pbcktabsize="2">
+<code class="php ">&#39;guards&#39; =&gt; [
+    &#39;web&#39; =&gt; [
+        &#39;driver&#39; =&gt; &#39;session&#39;,
+        &#39;provider&#39; =&gt; &#39;users&#39;,
+    ],
+
+    &#39;api&#39; =&gt; [
+        // awalnya driver ini valuenya token kita ganti menjadi passport
+        &#39;driver&#39; =&gt; &#39;passport&#39;,
+        &#39;provider&#39; =&gt; &#39;users&#39;,
+        &#39;hash&#39; =&gt; false,
+    ],
+],</code>
+                    </pre>
+                    <!-- end code block -->
+                    <p>buka file AuthServiceProvider.php yang ada di chat\rest-server\app\Providers\AuthServiceProvider.php dan atur jangka waktu expired token nya menjadi seperti ini:</p>
+                    <!-- code block -->
+                    <pre data-pbcklang="php" data-pbcktabsize="2">
+<code class="php ">public function boot()
+{
+    $this-&gt;registerPolicies();
+
+    // nah panggil passport:routesnya
+    Passport::routes();
+
+    // access token kita atur expirednya menjadi 1 jam 
+    Passport::tokensExpireIn(now()-&gt;addHours(1));
+
+    // sedangkan refresh token kita atur expirednya menjadi 70 menit
+    Passport::refreshTokensExpireIn(now()-&gt;addMinutes(70));
+}</code>
+                    </pre>
+                    <!-- end code block -->
+                    <p>Nah sekarang kita akan membuat rest api untuk sign up atau account registration, buat sebuah controller dengan php artisan yang akan kita beri nama BaseController dan berada di dalam folder API. Gambar:</p>
+                    <div class="row justify-content-center mb-2">
+                        <div class="col-md-6">
+                            <a href="../assets/img/article-img/original/ndfskdkl.jpg" target="_blank">
+                                <picture>
+                                  <source type="image/webp" srcset="../assets/img/article-img/webp/ndfskdkl.webp">
+                                  <source type="image/jpeg" srcset="../assets/img/article-img/mozjpeg/ndfskdkl.jpg">
+                                  <img src="../assets/img/article-img/mozjpeg/ndfskdkl.jpg" alt="gambar klik git bash here" class="img-fluid img-thumbnail">
+                                </picture>
+                            </a>
+                        </div>
+                    </div>
+                    <p>dan satu lagi controller yang akan diberi nama SignUpController. Gambar:</p>
+                    <div class="row justify-content-center mb-2">
+                        <div class="col-md-6">
+                            <a href="../assets/img/article-img/original/yfbejeel.jpg" target="_blank">
+                                <picture>
+                                  <source type="image/webp" srcset="../assets/img/article-img/webp/yfbejeel.webp">
+                                  <source type="image/jpeg" srcset="../assets/img/article-img/mozjpeg/yfbejeel.jpg">
+                                  <img src="../assets/img/article-img/mozjpeg/yfbejeel.jpg" alt="gambar klik git bash here" class="img-fluid img-thumbnail">
+                                </picture>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card text-white bg-dark shadow-sm mb-2">
+                      <div class="card-body">
+                        buka file BaseController.php yang ada di chat\rest-server\app\Http\Controllers\API\BaseController.php lalu isi filenya jadi seperti ini:
+                      </div>
+                    </div>
+                    <!-- code block -->
+                    <pre data-pbcklang="php" data-pbcktabsize="2">
+<code class="php ">class BaseController extends Controller
+{
+    // jika berhasil mengirim response kirim datanya
+    public function sendResponse($result, $message)
+    {
+        $response = [
+            &#39;success&#39;   =&gt; true,
+            &#39;data&#39;      =&gt; $result,
+            &#39;message&#39;   =&gt; $message
+        ];
+
+        return response()-&gt;json($response, 200);
+    }
+
+    // sedangkan jika error kirim pesan errornya
+    public function sendError($error, $errorMessages = [], $code = 404)
+    {
+        $response = [
+            &#39;success&#39;   =&gt; false,
+            &#39;message&#39;   =&gt; $error
+        ];
+
+        if(!empty($errorMessages)){
+            $response[&#39;data&#39;] = $errorMessages;
+        }
+
+        return response()-&gt;json($response, $code);
+    }
+}</code>
+                    </pre>
+                    <!-- end code block -->
+                    <p>ada yang akan diubah di table usersnya jadi buat dulu migrationnya:</p>
+                    <div class="card shadow-sm mb-2">
+                      <div class="card-body">
+                        php artisan make:migration add_username_and_fullname_to_users_table --table=users
+                      </div>
+                    </div>
+                    <div class="card text-white bg-dark shadow-sm mb-2">
+                      <div class="card-body">
+                        kemudian buka file 2020_10_05_120521_add_username_and_fullname_to_users_table.php di chat\rest-server\database\migrations\2020_10_05_120521_add_username_and_fullname_to_users_table.php dan edit isi filenya jadi seperti ini:
+                      </div>
+                    </div>
+                    <!-- code block -->
+                    <pre data-pbcklang="php" data-pbcktabsize="2">
+<code class="php ">public function up()
+{
+    Schema::table(&#39;users&#39;, function (Blueprint $table) {
+        $table-&gt;string(&#39;username&#39;)-&gt;unique()-&gt;nullable()-&gt;after(&#39;id&#39;);
+        $table-&gt;string(&#39;fullname&#39;)-&gt;nullable()-&gt;after(&#39;username&#39;);
+    });
+}</code>
+                    </pre>
+                    <!-- end code block -->
+                    <p>jangan lupa juga dimigrate ya:</p>
+                    <div class="card shadow-sm mb-2">
+                      <div class="card-body">
+                        php artisan migrate
+                      </div>
+                    </div>
+                    <p>selanjutnya buka file SignUpController.php di chat\rest-server\app\Http\Controllers\API\SignUpController.php lalu buat method store untuk menyimpan data user baru:</p>
+                    <!-- code block -->
+                    <pre data-pbcklang="php" data-pbcktabsize="2">
+<code class="php ">&lt;?php
+
+namespace App\Http\Controllers\API;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Http\Controllers\API\BaseController;
+use App\Models\User;
+use Laravel\Fortify\Rules\Password;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;</code>
+                    </pre>
+                    <!-- end code block -->
+                    <!-- code block -->
+                    <pre data-pbcklang="php" data-pbcktabsize="2">
+<code class="php ">class SignUpController extends BaseController
+{
+    public function signup(Request $request)
+    {
+        $validator = Validator::make($request-&gt;all(), [
+            &#39;username&#39; =&gt; [&#39;required&#39;, &#39;string&#39;, &#39;max:255&#39;, &#39;unique:users&#39;],
+            &#39;fullname&#39; =&gt; [&#39;required&#39;, &#39;string&#39;, &#39;max:255&#39;],
+            &#39;email&#39; =&gt; [&#39;required&#39;, &#39;string&#39;, &#39;email&#39;, &#39;max:255&#39;, &#39;unique:users&#39;],
+            &#39;password&#39; =&gt; [&#39;required&#39;, &#39;string&#39;, new Password]
+        ])-&gt;validate();
+
+        User::create([
+            &#39;username&#39; =&gt; $request[&#39;username&#39;],
+            &#39;fullname&#39; =&gt; $request[&#39;fullname&#39;],
+            &#39;name&#39; =&gt; $request[&#39;fullname&#39;],
+            &#39;email&#39; =&gt; $request[&#39;email&#39;],
+            &#39;password&#39; =&gt; Hash::make($request[&#39;password&#39;])
+        ]);
+
+        return $this-&gt;sendResponse([], &#39;Registrasi akun berhasil&#39;);
+    }
+}</code>
+                    </pre>
+                    <!-- end code block -->
+                    <p>buka file api.php di chat\rest-server\routes\api.php dan buat route api agar kita bisa mengakses method signupnya:</p>
+                    <!-- code block -->
+                    <pre data-pbcklang="php" data-pbcktabsize="2">
+<code class="php ">&lt;?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\SignUpController;
+
+/*
+|--------------------------------------------------------------------------
+| API Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register API routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| is assigned the &quot;api&quot; middleware group. Enjoy building your API!
+|
+*/
+
+Route::middleware(&#39;auth:api&#39;)-&gt;group( function () {
+    Route::post(&#39;/signup&#39;, [SignUpController::class, &#39;signup&#39;]);
+});
+</code>
+                    </pre>
+                    <!-- end code block -->
+                    <p>edit juga file model usernya di chat\rest-server\app\Models\User.php:</p>
+                    <!-- code block -->
+                    <pre data-pbcklang="php" data-pbcktabsize="2">
+<code class="php ">protected $fillable = [
+    // username dan fullname yang ditambahkan
+    &#39;username&#39;,
+    &#39;fullname&#39;, 
+    &#39;name&#39;,
+    &#39;email&#39;,
+    &#39;password&#39;,
+];</code>
+                    </pre>
+                    <!-- end code block -->
+                    <p>Sekarang kita akan membuat project yang diberi nama rest-client, buka folder chat lalu git bash here (ingat di dalam folder chat bukan di folder rest-server) terus tinggal buat pakai composer:</p>
+                    <div class="row justify-content-center mb-2">
+                        <div class="col-md-6">
+                            <a href="../assets/img/article-img/original/kjnfkdjsbfj.jpg" target="_blank">
+                                <picture>
+                                  <source type="image/webp" srcset="../assets/img/article-img/webp/kjnfkdjsbfj.webp">
+                                  <source type="image/jpeg" srcset="../assets/img/article-img/mozjpeg/kjnfkdjsbfj.jpg">
+                                  <img src="../assets/img/article-img/mozjpeg/kjnfkdjsbfj.jpg" alt="gambar klik git bash here" class="img-fluid img-thumbnail">
+                                </picture>
+                            </a>
+                        </div>
+                    </div>
+                    <p>buat controller di dalam folder project rest-client dan kita akan beri nama controllernya OauthController dengan php artisan:</p>
+                    <div class="row justify-content-center mb-2">
+                        <div class="col-md-6">
+                            <a href="../assets/img/article-img/original/osdfndkjasf.jpg" target="_blank">
+                                <picture>
+                                  <source type="image/webp" srcset="../assets/img/article-img/webp/osdfndkjasf.webp">
+                                  <source type="image/jpeg" srcset="../assets/img/article-img/mozjpeg/osdfndkjasf.jpg">
+                                  <img src="../assets/img/article-img/mozjpeg/osdfndkjasf.jpg" alt="gambar klik git bash here" class="img-fluid img-thumbnail">
+                                </picture>
+                            </a>
+                        </div>
+                    </div>
+                    <p>untuk bisa menggunakan http client kita harus mendownload dahulu packagenya menggunakan composer dan kita tempatkan di rest-client:</p>
+                    <div class="card shadow-sm mb-2">
+                      <div class="card-body">
+                        composer require guzzlehttp/guzzle
+                      </div>
+                    </div>
+                    <p>buka file controller OauthController.php di chat\rest-client\app\Http\Controllers\OauthController.php lalu kita buat method untuk refresh token dan access tokennya:</p>
+                    <!-- code block -->
+                    <pre data-pbcklang="php" data-pbcktabsize="2">
+<code class="php ">&lt;?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+
+class OauthController extends Controller
+{
+    // access token
+    public function access()
+    {
+        $response = Http::post(config(&#39;services.oauth_server.uri&#39;) . &#39;/oauth/token&#39;, [
+            &#39;grant_type&#39; =&gt; &#39;password&#39;,
+            &#39;client_id&#39; =&gt; config(&#39;services.oauth_server.client_id&#39;),
+            &#39;client_secret&#39; =&gt; config(&#39;services.oauth_server.client_secret&#39;),
+            &#39;username&#39; =&gt; config(&#39;services.oauth_server.username&#39;),
+            &#39;password&#39; =&gt; config(&#39;services.oauth_server.password&#39;),
+            &#39;scope&#39; =&gt; &#39;*&#39;
+        ]);
+
+        $response = $response-&gt;json();
+
+        $expired = now()-&gt;addSeconds($response[&#39;expires_in&#39;])-&gt;isoFormat(&#39;DDMMYYYYHHmmss&#39;);
+        session([
+            &#39;access_token&#39; =&gt; $response[&#39;access_token&#39;],
+            &#39;expires_in&#39; =&gt; $expired,
+            &#39;refresh_token&#39; =&gt; $response[&#39;refresh_token&#39;]
+        ]);
+    }
+
+    // refresh token
+    public function refresh()
+    {
+        $response = Http::post(config(&#39;services.oauth_server.uri&#39;) . &#39;/oauth/token&#39;, [
+            &#39;grant_type&#39; =&gt; &#39;refresh_token&#39;,
+            &#39;refresh_token&#39; =&gt; session(&#39;refresh_token&#39;),
+            &#39;client_id&#39; =&gt; config(&#39;services.oauth_server.client_id&#39;),
+            &#39;client_secret&#39; =&gt; config(&#39;services.oauth_server.client_secret&#39;),
+            &#39;scope&#39; =&gt; &#39;*&#39;,
+        ]);
+
+        $response = $response-&gt;json();
+
+        session()-&gt;forget([&#39;access_token&#39;, &#39;expires_in&#39;, &#39;refresh_token&#39;]);
+
+        $expired = now()-&gt;addSeconds($response[&#39;expires_in&#39;])-&gt;isoFormat(&#39;DDMMYYYYHHmmss&#39;);
+        session([
+            &#39;access_token&#39; =&gt; $response[&#39;access_token&#39;],
+            &#39;expires_in&#39; =&gt; $expired,
+            &#39;refresh_token&#39; =&gt; $response[&#39;refresh_token&#39;]
+        ]);
+    }
+}
+</code>
+                    </pre>
+                    <!-- end code block -->
+                    <p>edit file services.php di chat\rest-client\config\services.php tambahkan:</p>
+                    <!-- code block -->
+                    <pre data-pbcklang="php" data-pbcktabsize="2">
+<code class="php ">&lt;?php
+
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | Third Party Services
+    |--------------------------------------------------------------------------
+    |
+    | This file is for storing the credentials for third party services such
+    | as Mailgun, Postmark, AWS and more. This file provides the de facto
+    | location for this type of information, allowing packages to have
+    | a conventional file to locate the various service credentials.
+    |
+    */
+
+    &#39;mailgun&#39; =&gt; [
+        &#39;domain&#39; =&gt; env(&#39;MAILGUN_DOMAIN&#39;),
+        &#39;secret&#39; =&gt; env(&#39;MAILGUN_SECRET&#39;),
+        &#39;endpoint&#39; =&gt; env(&#39;MAILGUN_ENDPOINT&#39;, &#39;api.mailgun.net&#39;),
+    ],
+
+    &#39;postmark&#39; =&gt; [
+        &#39;token&#39; =&gt; env(&#39;POSTMARK_TOKEN&#39;),
+    ],
+
+    &#39;ses&#39; =&gt; [
+        &#39;key&#39; =&gt; env(&#39;AWS_ACCESS_KEY_ID&#39;),
+        &#39;secret&#39; =&gt; env(&#39;AWS_SECRET_ACCESS_KEY&#39;),
+        &#39;region&#39; =&gt; env(&#39;AWS_DEFAULT_REGION&#39;, &#39;us-east-1&#39;),
+    ],
+
+    &#39;oauth_server&#39; =&gt; [
+        &#39;client_id&#39; =&gt; env(&#39;OAUTH_SERVER_ID&#39;),
+        &#39;client_secret&#39; =&gt; env(&#39;OAUTH_SERVER_SECRET&#39;),
+        &#39;uri&#39; =&gt; env(&#39;OAUTH_SERVER_URI&#39;),
+        &#39;username&#39; =&gt; env(&#39;OAUTH_SERVER_USERNAME&#39;),
+        &#39;password&#39; =&gt; env(&#39;OAUTH_SERVER_PASSWORD&#39;),
+    ]
+
+];
+</code>
+                    </pre>
+                    <!-- end code block -->
+                    <p>giliran file .env nih yang ada di chat\rest-client\.env kita setting jadi seperti ini taruh di baris paling bawah ya:</p>
+                    <!-- code block -->
+                    <pre data-pbcklang="php" data-pbcktabsize="2">
+<code class="html ">OAUTH_SERVER_ID=isi dengan client id password grant client contoh: 2
+OAUTH_SERVER_SECRET=isi dengan client secret password grant client contoh: 63g3h42h2h3h324h24h24j2jj2h3h5k5b
+OAUTH_SERVER_URI=isi dengan url rest-server nya ya contoh: http://127.0.0.1:8000
+OAUTH_SERVER_USERNAME=isi dengan email yang kalian buat di halaman registrasi user rest-server contoh: sesuatu@gmail.com
+OAUTH_SERVER_PASSWORD=isi dengan password yang kalian buat di halaman registrasi user rest-server contoh: sebuahapelyangjatuh</code>
+                    </pre>
+                    <!-- end code block -->
+                    <p>jadi client id dan client secret kita dapatkan dari command php artisan passport:install yang akan membuat "personal access" dan "password grant" client, isi di OAUTH_SERVER_ID dengan kolom id dan OAUTH_SERVER_SECRET dengan kolom secret yang ada yang bernama laravel password grant client di tabel oauth_clients database chat:</p>
+                    <div class="row justify-content-center mb-2">
+                        <div class="col-md-6">
+                            <a href="../assets/img/article-img/original/azssdknsdks.jpg" target="_blank">
+                                <picture>
+                                  <source type="image/webp" srcset="../assets/img/article-img/webp/azssdknsdks.webp">
+                                  <source type="image/jpeg" srcset="../assets/img/article-img/mozjpeg/azssdknsdks.jpg">
+                                  <img src="../assets/img/article-img/mozjpeg/azssdknsdks.jpg" alt="gambar klik git bash here" class="img-fluid img-thumbnail">
+                                </picture>
+                            </a>
+                        </div>
+                    </div>
+                    <p>OAUTH_SERVER_URI diisi dengan url rest-server kalian, disini saya untuk url rest-server yaitu http://127.0.0.1:8000 sedangkan untuk rest-client yaitu http://127.0.0.1:8001. Untuk mengisi value OAUTH_SERVER_USERNAME dan OAUTH_SERVER_PASSWORD kita resgistrasi akun baru dahulu di rest-server, buka folder chat\rest-server\ klik kanan lalu git bash here kemudian ketik:</p>
+                    <div class="card shadow-sm mb-2">
+                      <div class="card-body">
+                        php artisan serve
+                      </div>
+                    </div>
+                    <p>buka browser ketik url <a href="http://127.0.0.1:8000/register" target="_blank">http://127.0.0.1:8000/register</a> maka akan diarahkan ke halaman registrasi akun baru di project rest-server, jika sudah selesai registrasi akun sekarang buka phpmyadmin nya buka database chat -> table users lalu copy email dan password akun nya ke OAUTH_SERVER_USERNAME dan OAUTH_SERVER_PASSWORD</p>
+                    <p>buatlah sebuah controller di rest-client bernama PagesController dengan php artisan:</p>
+                    <div class="card shadow-sm mb-2">
+                      <div class="card-body">
+                        php artisan make:controller PagesController
+                      </div>
+                    </div>
+                    <p>kemudian buka file PagesController.php di chat\rest-client\app\Http\Controllers\PagesController.php lalu edit isi filenya:</p>
+                    <!-- code block -->
+                    <pre data-pbcklang="php" data-pbcktabsize="2">
+<code class="php ">class PagesController extends Controller
+{
+    public function home()
+    {
+        return redirect(&#39;/signup&#39;);
+    }
+
+    public function signup()
+    {
+        return view(&#39;signup&#39;);
+    }
+}</code>
+                    </pre>
+                    <!-- end code block -->
+                    <p>buka file web.php di chat\rest-client\routes\web.php lalu kita isi filenya:</p>
+                    <!-- code block -->
+                    <pre data-pbcklang="php" data-pbcktabsize="2">
+<code class="php ">use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PagesController;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the &quot;web&quot; middleware group. Now create something great!
+|
+*/
+
+// Route::get(&#39;/&#39;, function () {
+//     return view(&#39;welcome&#39;);
+// });
+
+
+Route::get(&#39;/&#39;, [PagesController::class, &#39;home&#39;]);
+Route::get(&#39;/signup&#39;, [PagesController::class, &#39;signup&#39;]);</code>
+                    </pre>
+                    <!-- end code block -->
+                    <p>buat folder dengan nama layout di chat\rest-client\resources\views\ kemudian buat file di dalam folder layout dengan nama app.blade.php, isi file app.blade.php dengan ini:</p>
+                    <!-- code block -->
+                    <pre data-pbcklang="php" data-pbcktabsize="2">
+<code class="html ">&lt;!doctype html&gt;
+&lt;html lang=&quot;id&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;@yield(&#39;description&#39;)&quot;&gt;
+
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css&quot; integrity=&quot;sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk&quot; crossorigin=&quot;anonymous&quot;&gt;
+    &lt;!-- icon dari font awesome --&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css&quot;&gt;
+    &lt;!-- custom css --&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;{{ url(&#39;/&#39;) }}/../assets/css/style.css&quot;&gt;
+
+    &lt;title&gt;@yield(&#39;title&#39;)&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+
+    @yield(&#39;container&#39;)
+
+    &lt;script src=&quot;https://code.jquery.com/jquery-3.5.1.min.js&quot; integrity=&quot;sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js&quot; integrity=&quot;sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js&quot; integrity=&quot;sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code>
+                    </pre>
+                    <!-- end code block -->
+                    <p>next buat folder dengan nama ../assets di chat\rest-client\public\ , buat folder lagi di dalam folder ../assets dengan nama css, lalu buat file style.css di dalam folder css dan kita isi filenya:</p>
+                    <!-- code block -->
+                    <pre data-pbcklang="php" data-pbcktabsize="2">
+<code class="css ">.sc-card {
+    height: 100vh;
+}
+
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+
+    .sc-container {
+        padding: 0;
+    }
+
+}</code>
+                    </pre>
+                    <!-- end code block -->
+                    <p>kita buat tampilan signupnya dengan cara buat file signup.blade.php di chat\rest-client\resources\views\signup.blade.php terus isi filenya:</p>
+                    <!-- code block -->
+                    <pre data-pbcklang="php" data-pbcktabsize="2">
+<code class="html ">@extends(&#39;layout.app&#39;)
+
+@section(&#39;description&#39;, &#39;Simple chat sign up page&#39;)
+@section(&#39;title&#39;, &#39;Sign Up - Simple Chat&#39;)
+
+@section(&#39;container&#39;)
+    &lt;div class=&quot;container sc-container&quot;&gt;
+        &lt;div class=&quot;row justify-content-center&quot;&gt;
+            &lt;div class=&quot;col-12 col-lg-6&quot;&gt;
+                &lt;div class=&quot;card sc-card&quot;&gt;
+                  &lt;div class=&quot;card-header&quot;&gt;
+                    &lt;div class=&quot;row&quot;&gt;
+                      &lt;div class=&quot;col align-self-center text-center&quot;&gt;
+                        &lt;h5&gt;Registration&lt;/h5&gt;
+                      &lt;/div&gt; 
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;form method=&quot;post&quot; action=&quot;/signup&quot;&gt;
+                      @csrf
+                      &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;label for=&quot;exampleInputText1&quot;&gt;Username&lt;/label&gt;
+                        &lt;input type=&quot;text&quot; class=&quot;form-control @if(session(&#39;msg_username&#39;)) is-invalid @endif&quot; id=&quot;exampleInputText1&quot; name=&quot;username&quot; value=&quot;{{ $username ?? &#39;&#39; }}&quot;&gt;
+                        @if(session(&#39;msg_username&#39;))&lt;div class=&quot;invalid-feedback&quot;&gt;{{ session(&#39;msg_username&#39;) }}&lt;/div&gt;@endif
+                      &lt;/div&gt;
+                      &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;label for=&quot;exampleInputText2&quot;&gt;Full Name&lt;/label&gt;
+                        &lt;input type=&quot;text&quot; class=&quot;form-control @if(session(&#39;msg_fullname&#39;)) is-invalid @endif&quot; id=&quot;exampleInputText2&quot; name=&quot;fullname&quot; value=&quot;{{ $fullname ?? &#39;&#39; }}&quot;&gt;
+                        @if(session(&#39;msg_fullname&#39;))&lt;div class=&quot;invalid-feedback&quot;&gt;{{ session(&#39;msg_fullname&#39;) }}&lt;/div&gt;@endif
+                      &lt;/div&gt;
+                      &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;label for=&quot;exampleInputEmail1&quot;&gt;Email&lt;/label&gt;
+                        &lt;input type=&quot;email&quot; class=&quot;form-control @if(session(&#39;msg_email&#39;)) is-invalid @endif&quot; id=&quot;exampleInputEmail1&quot; name=&quot;email&quot; value=&quot;{{ $email ?? &#39;&#39; }}&quot;&gt;
+                        @if(session(&#39;msg_email&#39;))&lt;div class=&quot;invalid-feedback&quot;&gt;{{ session(&#39;msg_email&#39;) }}&lt;/div&gt;@endif
+                      &lt;/div&gt;
+                      &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;label for=&quot;exampleInputPassword1&quot;&gt;Password&lt;/label&gt;
+                        &lt;input type=&quot;password&quot; class=&quot;form-control @if(session(&#39;msg_password&#39;)) is-invalid @endif&quot; id=&quot;exampleInputPassword1&quot; name=&quot;password&quot;&gt;
+                        @if(session(&#39;msg_password&#39;))&lt;div class=&quot;invalid-feedback&quot;&gt;{{ session(&#39;msg_password&#39;) }}&lt;/div&gt;@endif
+                      &lt;/div&gt;
+                      &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary mb-3&quot;&gt;Register&lt;/button&gt;
+                      &lt;p&gt;Have an account? &lt;a href=&quot;#&quot;&gt;Log In&lt;/a&gt;&lt;/p&gt;
+                    &lt;/form&gt;
+                  &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+@endsection</code>
+                    </pre>
+                    <!-- end code block -->
+                    <p>buat router baru untuk tempat url menampilkan pemberitahuan sign up berhasil di chat\rest-client\routes\web.php:</p>
+                    <!-- code block -->
+                    <pre data-pbcklang="php" data-pbcktabsize="2">
+<code class="php ">Route::get(&#39;/signin&#39;, [PagesController::class, &#39;signin&#39;]);</code>
+                    </pre>
+                    <!-- end code block -->
+                    <p>kemudian buat method baru bernama signin() di chat\rest-client\app\Http\Controllers\PagesController.php:</p>
+                    <!-- code block -->
+                    <pre data-pbcklang="php" data-pbcktabsize="2">
+<code class="php ">public function signin()
+{
+    return view(&#39;signin&#39;);
+}</code>
+                    </pre>
+                    <!-- end code block -->
+                    <p>jangan lupa juga membuat file sign in page nya ya di chat\rest-client\resources\views\signin.blade.php untuk memberi tahu kalau akun baru kita berhasil dibuat:</p>
+                    <!-- code block -->
+                    <pre data-pbcklang="php" data-pbcktabsize="2">
+<code class="html ">@extends(&#39;layout.app&#39;)
+
+@section(&#39;description&#39;, &#39;Simple chat sign in page&#39;)
+@section(&#39;title&#39;, &#39;Sign In - Simple Chat&#39;)
+
+@section(&#39;container&#39;)
+    &lt;div class=&quot;container sc-container&quot;&gt;
+        &lt;div class=&quot;row justify-content-center&quot;&gt;
+            &lt;div class=&quot;col-12 col-lg-6&quot;&gt;
+                &lt;div class=&quot;card sc-card&quot;&gt;
+                  &lt;div class=&quot;card-header&quot;&gt;
+                    &lt;div class=&quot;row&quot;&gt;
+                      &lt;div class=&quot;col align-self-center text-center&quot;&gt;
+                        &lt;h5&gt;Berhasil&lt;/h5&gt;
+                      &lt;/div&gt; 
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;div class=&quot;alert alert-success&quot; role=&quot;alert&quot;&gt;
+                      Akun baru anda berhasil dibuat!
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+@endsection
+</code>
+                    </pre>
+                    <!-- end code block -->
+                    <p>kita buat route baru untuk menyimpan data new account registration di chat\rest-client\routes\web.php:</p>
+                    <!-- code block -->
+                    <pre data-pbcklang="php" data-pbcktabsize="2">
+<code class="php ">Route::post(&#39;/signup&#39;, [PagesController::class, &#39;storeSignup&#39;]);</code>
+                    </pre>
+                    <!-- end code block -->
+                    <p>buat method storeSignup() di chat\rest-client\app\Http\Controllers\PagesController.php:</p>
+                    <!-- code block -->
+                    <pre data-pbcklang="php" data-pbcktabsize="2">
+<code class="php ">&lt;?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+use App\Http\Controllers\OauthController;
+
+class PagesController extends OauthController
+{
+    public function __construct()
+    {
+        $this-&gt;access();
+    }
+
+    public function home()
+    {
+        return redirect(&#39;/signup&#39;);
+    }
+
+    public function signup()
+    {
+        if(session(&#39;msg_username&#39;)) {
+            session()-&gt;forget(&#39;msg_username&#39;);
+        }
+
+        if(session(&#39;msg_fullname&#39;)) {
+            session()-&gt;forget(&#39;msg_fullname&#39;);
+        }
+
+        if(session(&#39;msg_email&#39;)) {
+            session()-&gt;forget(&#39;msg_email&#39;);
+        }
+
+        if(session(&#39;msg_password&#39;)) {
+            session()-&gt;forget(&#39;msg_password&#39;);
+        }
+
+        return view(&#39;signup&#39;);
+    }
+
+    public function storeSignup(Request $request)
+    {
+        $currentTime = now()-&gt;isoFormat(&#39;DDMMYYYYHHmmss&#39;);
+        $expired = session(&#39;expires_in&#39;);
+
+        if ($currentTime &gt; $expired) {
+            return $this-&gt;refresh();
+        }
+
+        $response = Http::withHeaders([
+            &#39;Accept&#39; =&gt; &#39;application/json&#39;,
+            &#39;Authorization&#39; =&gt; &#39;Bearer &#39; . session(&#39;access_token&#39;)
+        ])-&gt;post(config(&#39;services.oauth_server.uri&#39;) . &#39;/api/signup&#39;, [
+            &#39;username&#39; =&gt; $request-&gt;username,
+            &#39;fullname&#39; =&gt; $request-&gt;fullname,
+            &#39;email&#39; =&gt; $request-&gt;email,
+            &#39;password&#39; =&gt; $request-&gt;password
+        ]);
+
+        if($response-&gt;failed()) {
+            if(empty($response[&#39;errors&#39;][&#39;username&#39;][0])) {
+                $username = $request-&gt;username;
+            } elseif(isset($response[&#39;errors&#39;][&#39;username&#39;][0])) {
+                session()-&gt;flash(&#39;msg_username&#39;, $response[&#39;errors&#39;][&#39;username&#39;][0]);
+                $username = $request-&gt;username;
+            } else {
+                $username = $request-&gt;username;
+            }
+
+            if(empty($response[&#39;errors&#39;][&#39;fullname&#39;][0])) {
+                $fullname = $request-&gt;fullname;
+            } elseif(isset($response[&#39;errors&#39;][&#39;fullname&#39;][0])) {
+                session()-&gt;flash(&#39;msg_fullname&#39;, $response[&#39;errors&#39;][&#39;fullname&#39;][0]);
+                $fullname = $request-&gt;fullname;
+            } else {
+                $fullname = $request-&gt;fullname;
+            }
+
+            if(empty($response[&#39;errors&#39;][&#39;email&#39;][0])) {
+                $email = $request-&gt;email;
+            } elseif(isset($response[&#39;errors&#39;][&#39;email&#39;][0])) {
+                session()-&gt;flash(&#39;msg_email&#39;, $response[&#39;errors&#39;][&#39;email&#39;][0]);
+                $email = $request-&gt;email;
+            } else {
+                $email = $request-&gt;email;
+            }
+
+            if(empty($response[&#39;errors&#39;][&#39;password&#39;][0])) {
+                $emptyPassword = &#39;&#39;;
+            } elseif(isset($response[&#39;errors&#39;][&#39;password&#39;][0])) {
+                session()-&gt;flash(&#39;msg_password&#39;, $response[&#39;errors&#39;][&#39;password&#39;][0]);
+                $emptyPassword = &#39;&#39;;
+            } else {
+                $emptyPassword = &#39;&#39;;
+            }
+
+            return view(&#39;signup&#39;, compact(&#39;username&#39;, &#39;fullname&#39;, &#39;email&#39;));
+        }
+
+        return redirect(&#39;/signin&#39;);
+    }
+
+    public function signin()
+    {
+        return view(&#39;signin&#39;);
+    }
+}</code>
+                    </pre>
+                    <!-- end code block -->
+                    <p>Udah selesai nih ngodingnya ayo coba kita test. Pastikan kalian sudah menyalakan mysql nya ya di XAMPP, buka folder project rest-server nya lalu git bash here dan masukkan command berikut:</p>
+                    <div class="card shadow-sm mb-2">
+                      <div class="card-body">
+                        php artisan serve
+                      </div>
+                    </div>
+                    <p>maka rest-server akan dijalankan di url <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a>. Selanjutnya giliran rest-client nih, buka folder project rest-client lalu git bash here dan masukkan command berikut(beda ya command nya sama yang tadi):</p>
+                    <div class="card shadow-sm mb-2">
+                      <div class="card-body">
+                        php artisan serve --port=8001
+                      </div>
+                    </div>
+                    <p>maka rest client akan dijalankan di url <a href="http://127.0.0.1:8001">http://127.0.0.1:8001</a>(buka link ini di browser kalian dan akan diarahkan ke halaman sign up) kita coba fitur signup nya:</p>
+                    <div class="row justify-content-center mb-2">
+                        <div class="col-md-6">
+                            <a href="../assets/img/article-img/original/juisfjidsfjidk.jpg" target="_blank">
+                                <picture>
+                                  <source type="image/webp" srcset="../assets/img/article-img/webp/juisfjidsfjidk.webp">
+                                  <source type="image/jpeg" srcset="../assets/img/article-img/mozjpeg/juisfjidsfjidk.jpg">
+                                  <img src="../assets/img/article-img/mozjpeg/juisfjidsfjidk.jpg" alt="gambar klik git bash here" class="img-fluid img-thumbnail">
+                                </picture>
+                            </a>
+                        </div>
+                    </div>
+                    <p>jika akun baru nya berhasil dibuat:</p>
+                    <div class="row justify-content-center mb-2">
+                        <div class="col-md-6">
+                            <a href="../assets/img/article-img/original/bdfokefjuieue.jpg" target="_blank">
+                                <picture>
+                                  <source type="image/webp" srcset="../assets/img/article-img/webp/bdfokefjuieue.webp">
+                                  <source type="image/jpeg" srcset="../assets/img/article-img/mozjpeg/bdfokefjuieue.jpg">
+                                  <img src="../assets/img/article-img/mozjpeg/bdfokefjuieue.jpg" alt="gambar klik git bash here" class="img-fluid img-thumbnail">
+                                </picture>
+                            </a>
+                        </div>
+                    </div>
+                    <p>Sampai disini dulu tutorial kali ini sampai jumpa.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>Ayo dukung Kak Oding dengan traktir di:</p>
+                    <p>
+                        - GoPay, OVO, Dana, dan LinkAja (tanpa perlu login ke trakteer.id dan hanya berlaku di Indonesia)<br>
+                        <a href="https://trakteer.id/kakoding" target="_blank">trakteer.id/kakoding</a>
+                    </p>
+                    <p>
+                        - Kartu debit dan kartu kredit (berlaku Internasional)<br>
+                        <a href="https://paypal.me/kakoding" target="_blank">paypal.me/kakoding</a>
+                    </p>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <p>Source code hasil ngoding ada di <a href="https://github.com/kakoding" target="_blank">github.com/kakoding</a></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h4>Share</h4>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-12 mb-2">
+                   <a href="https://api.whatsapp.com/send?text=https://kakoding.github.io/kakoding-web/artikel/sign-up-tutorial-membuat-chat-app-dengan-laravel-8-dan-push-notification.html" target="_blank" class="btn btn-light mr-2"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://facebook.com/share.php?u=https://kakoding.github.io/kakoding-web/artikel/sign-up-tutorial-membuat-chat-app-dengan-laravel-8-dan-push-notification.html&title=#1 Sign Up - Tutorial Membuat Chat App dengan Laravel 8 dan Push Notification" target="_blank" class="btn btn-light mr-2"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/share?url=https://kakoding.github.io/kakoding-web/artikel/sign-up-tutorial-membuat-chat-app-dengan-laravel-8-dan-push-notification.html&text=#1 Sign Up - Tutorial Membuat Chat App dengan Laravel 8 dan Push Notification" target="_blank" class="btn btn-light mr-2"><i class="fab fa-twitter"></i></a>
+                </div>
+                <div class="col-12">
+                    <button type="button" data-clipboard-text="https://kakoding.github.io/kakoding-web/artikel/sign-up-tutorial-membuat-chat-app-dengan-laravel-8-dan-push-notification.html" class="btn btn-light kak-copy-link" data-toggle="popover" data-placement="bottom" data-content="Copied!"><i class="far fa-copy mr-1"></i> Copy Link</button>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <div class="media position-relative">
+                        <picture>
+                          <source type="image/webp" srcset="../assets/img/writer-avatar.webp">
+                          <source type="image/jpeg" srcset="../assets/img/mozjpeg/writer-avatar.jpg">
+                          <img src="../assets/img/mozjpeg/writer-avatar.jpg" width="100" class="rounded-circle mr-3" alt="Ditulis oleh Kak Oding">
+                        </picture>
+                        
+                        <div class="media-body ml-lg-3">
+                            <p class="mt-2">
+                                <span class="text-secondary">Ditulis oleh</span><br>
+                                <span class="writed-by">Kak Oding</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <h4 class="mb-4">Komentar</h4>
+                    <small class="form-text text-muted"><b>Perhatian</b> untuk sementara waktu komentar dilakukan di postingan twitter</small>
+                    <a href="https://bit.ly/2T3RTnZ" title="link untuk komentar di facebook post" target="_blank">https://bit.ly/2T3RTnZ</a>
+                </div>
+            </div>
+            <hr>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- iklan kotak -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-3297136171257630"
+                 data-ad-slot="1233342079"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </article>
+
+    <footer class="mt-5 position-relative kak-footer">
+        <div class="container">
+            <div class="row pt-4">
+                <div class="col-12">
+                    <p class="ikuti-kami">Ikuti Kami di</p>
+                </div>
+                <div class="col-12">
+                    <a href="https://twitter.com/kak_oding" target="_blank" class="btn btn-primary btn-footer-twitter mr-2"><i class="fab fa-twitter"></i></a>
+                    <a href="https://github.com/kakoding" target="_blank" class="btn btn-primary btn-footer-twitter"><i class="fab fa-github"></i></a>
+                </div>
+                <div class="col-12 mt-3">
+                    <p>&copy; 2020 Kak Oding.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="btn btn-primary back-to-top"><i class="fas fa-chevron-up"></i></a>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+
+    <script src="../assets/js/clipboard.js"></script>
+    <script src="../assets/js/script.js"></script>
+  </body>
+</html>

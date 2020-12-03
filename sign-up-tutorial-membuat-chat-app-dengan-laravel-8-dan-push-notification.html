@@ -673,7 +673,7 @@ Route::get(&#39;/signup&#39;, [PagesController::class, &#39;signup&#39;]);</code
                   &lt;div class=&quot;card-header&quot;&gt;
                     &lt;div class=&quot;row&quot;&gt;
                       &lt;div class=&quot;col align-self-center text-center&quot;&gt;
-                        &lt;h5&gt;Registration&lt;/h5&gt;
+                        &lt;h5&gt;Sign Up&lt;/h5&gt;
                       &lt;/div&gt; 
                     &lt;/div&gt;
                   &lt;/div&gt;
@@ -700,8 +700,8 @@ Route::get(&#39;/signup&#39;, [PagesController::class, &#39;signup&#39;]);</code
                         &lt;input type=&quot;password&quot; class=&quot;form-control @if(session(&#39;msg_password&#39;)) is-invalid @endif&quot; id=&quot;exampleInputPassword1&quot; name=&quot;password&quot;&gt;
                         @if(session(&#39;msg_password&#39;))&lt;div class=&quot;invalid-feedback&quot;&gt;{{ session(&#39;msg_password&#39;) }}&lt;/div&gt;@endif
                       &lt;/div&gt;
-                      &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary mb-3&quot;&gt;Register&lt;/button&gt;
-                      &lt;p&gt;Have an account? &lt;a href=&quot;#&quot;&gt;Log In&lt;/a&gt;&lt;/p&gt;
+                      &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary mb-3&quot;&gt;Sign up&lt;/button&gt;
+                      &lt;p&gt;Have an account? &lt;a href=&quot;{{ url(&#39;/signin&#39;) }}&quot;&gt;Sign in&lt;/a&gt;&lt;/p&gt;
                     &lt;/form&gt;
                   &lt;/div&gt;
                   &lt;/div&gt;

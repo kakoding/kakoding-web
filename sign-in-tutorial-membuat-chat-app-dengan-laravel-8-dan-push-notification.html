@@ -92,7 +92,7 @@
                   &lt;div class=&quot;card-header&quot;&gt;
                     &lt;div class=&quot;row&quot;&gt;
                       &lt;div class=&quot;col align-self-center text-center&quot;&gt;
-                        &lt;h5&gt;Login&lt;/h5&gt;
+                        &lt;h5&gt;Sign In&lt;/h5&gt;
                       &lt;/div&gt; 
                     &lt;/div&gt;
                   &lt;/div&gt;
@@ -100,6 +100,11 @@
                     @if (session(&#39;success_msg&#39;))
                         &lt;div class=&quot;alert alert-success&quot;&gt;
                             {{ session(&#39;success_msg&#39;) }}
+                        &lt;/div&gt;
+                    @endif
+                    @if (session(&#39;failed_msg&#39;))
+                        &lt;div class=&quot;alert alert-danger&quot;&gt;
+                            {{ session(&#39;failed_msg&#39;) }}
                         &lt;/div&gt;
                     @endif
                     &lt;form method=&quot;post&quot; action=&quot;/signin&quot;&gt;
@@ -114,8 +119,8 @@
                         &lt;input type=&quot;password&quot; class=&quot;form-control @error(&#39;password&#39;) is-invalid @enderror&quot; id=&quot;exampleInputPassword1&quot; name=&quot;password&quot;&gt;
                         @error(&#39;password&#39;)&lt;div class=&quot;invalid-feedback&quot;&gt;{{ $message }}&lt;/div&gt;@enderror
                       &lt;/div&gt;
-                      &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary mb-3&quot;&gt;Login&lt;/button&gt;
-                      &lt;p&gt;Don&#39;t have an account? &lt;a href=&quot;#&quot;&gt;Sign up&lt;/a&gt;&lt;/p&gt;
+                      &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary mb-3&quot;&gt;Sign in&lt;/button&gt;
+                      &lt;p&gt;Don&#39;t have an account? &lt;a href=&quot;{{ url(&#39;/signup&#39;) }}&quot;&gt;Sign up&lt;/a&gt;&lt;/p&gt;
                     &lt;/form&gt;
                   &lt;/div&gt;
                   &lt;/div&gt;
@@ -124,8 +129,7 @@
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-@endsection
-</code>
+@endsection</code>
                     </pre>
                     <!-- end code block -->
                     <p>buat juga route baru untuk mengecek data login di chat\rest-client\routes\web.php:</p>
@@ -134,12 +138,59 @@
 <code class="php ">Route::post(&#39;/signin&#39;, [PagesController::class, &#39;sendSignin&#39;]);</code>
                     </pre>
                     <!-- end code block -->
-                    <p>waktunya membuat controller baru nih untuk SignInController:</p>
+                    <p>waktunya membuat controller baru nih untuk rest-server SignInController:</p>
                     <!-- code block -->
                     <pre data-pbcklang="php" data-pbcktabsize="2">
-<code class="php ">php artisan make:controller namaControllernyaBelumDiubah</code>
+<code class="php ">php artisan make:controller API/SignInController</code>
                     </pre>
                     <!-- end code block -->
+                    <p>buka controller yang kita buat tadi di chat\rest-server\app\Http\Controllers\API\SignInController.php dan buat fitur sebagai berikut:</p>
+                     <!-- code block -->
+                    <pre data-pbcklang="php" data-pbcktabsize="2">
+<code class="php ">&lt;?php
+
+namespace App\Http\Controllers\API;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Http\Controllers\API\BaseController;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;</code>
+                    </pre>
+                    <!-- end code block -->
+                    <!-- code block -->
+                    <pre data-pbcklang="php" data-pbcktabsize="2">
+<code class="php ">class SignInController extends BaseController
+{
+     public function signin(Request $request)
+    {
+        $user = User::where(&#39;email&#39;, $request[&#39;email&#39;])-&gt;first();
+        $d = [
+            &#39;username&#39; =&gt; $user-&gt;username,
+            &#39;fullname&#39; =&gt; $user-&gt;fullname,
+            &#39;email&#39; =&gt; $user-&gt;email,
+            &#39;password&#39; =&gt; $user-&gt;password
+        ];
+
+        return $this-&gt;sendResponse($d, &#39;mengambil data user berhasil&#39;);
+    }
+}</code>
+                    </pre>
+                    <!-- end code block -->
+                    <p>daftarkan route rest api signin di chat\rest-server\routes\api.php:</p>
+                    <!-- code block -->
+                    <pre data-pbcklang="php" data-pbcktabsize="2">
+<code class="php ">use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\SignUpController;
+use App\Http\Controllers\API\SignInController;
+
+Route::middleware(&#39;auth:api&#39;)-&gt;group( function () {
+  Route::post(&#39;/signup&#39;, [SignUpController::class, &#39;signup&#39;]);
+  Route::post(&#39;/signin&#39;, [SignInController::class, &#39;signin&#39;]);
+});</code>
+                    </pre>
+                    <!-- end code block -->
+                    <p>kita mau buat file frontend chats jadi buat dulu folder baru dengan nama chats di chat\rest-client\resources\views\ dan buat file chats.blade.php di dalamnya kemudian buka file tersebut:</p>
                 </div>
             </div>
             <div class="row">

@@ -1,5 +1,24 @@
 $(document).ready(function () {
 
+    $( "body" ).append(`
+        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Pengumuman</h5>
+              </div>
+              <div class="modal-body">
+                <p>Web Kak Oding sekarang pindah ke <a href="https://kakmikus.blogspot.com">kakmikus.blogspot.com</a></p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    `);
+    $('#staticBackdrop').modal('show');
+
     // back to top button
     $(window).scroll(function() {
         if ($(this).scrollTop() > 100) {
